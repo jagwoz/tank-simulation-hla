@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='utf-8'?>
+<objectModel 
+ xmlns='http://standards.ieee.org/IEEE1516-2010'
+ xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+ xsi:schemaLocation='http://standards.ieee.org/IEEE1516-2010 http://standards.ieee.org/downloads/1516/1516.2-2010/IEEE1516-DIF-2010.xsd'  >
+	<modelIdentification>
+		<name>TankSimulation</name>
+		<type>FOM</type>
+		<version>1.0</version>
+	</modelIdentification>
+	<objects>
+		<objectClass>
+			<name>HLAobjectRoot</name>
+			<objectClass>
+				<name>Terrain</name>
+				<sharing>PublishSubscribe</sharing>
+				<semantics>Terrain</semantics>
+				<attribute>
+					<name>terrain</name>
+					<dataType>TerrainArray</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Terrain</semantics>
+				</attribute>
+			</objectClass>
+			<objectClass>
+				<name>Statistic</name>
+				<sharing>PublishSubscribe</sharing>
+				<semantics>Statistic</semantics>
+				<attribute>
+					<name>shots</name>
+					<dataType>HLAinteger32BE</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Shots counter</semantics>
+				</attribute>
+				<attribute>
+					<name>hits</name>
+					<dataType>HLAinteger32BE</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Hits counter</semantics>
+				</attribute>
+				<attribute>
+					<name>avg</name>
+					<dataType>HLAfloat32BE</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Avg time of hit</semantics>
+				</attribute>
+			</objectClass>
+			<objectClass>
+				<name>Tank</name>
+				<sharing>PublishSubscribe</sharing>
+				<semantics>Tank</semantics>
+				<attribute>
+					<name>angle</name>
+					<dataType>HLAinteger32BE</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Tank's barrel angle</semantics>
+				</attribute>
+				<attribute>
+					<name>viewfinder</name>
+					<dataType>HLAinteger32BE</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Tank's viewfinder position</semantics>
+				</attribute>
+			</objectClass>
+			<objectClass>
+				<name>Gui</name>
+				<sharing>PublishSubscribe</sharing>
+				<semantics>Gui</semantics>
+				<attribute>
+					<name>gui</name>
+					<dataType>HLAinteger32BE</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Graphical user interface</semantics>
+				</attribute>
+			</objectClass>
+			<objectClass>
+				<name>Weather</name>
+				<sharing>PublishSubscribe</sharing>
+				<semantics>Weather</semantics>
+				<attribute>
+					<name>temperature</name>
+					<dataType>HLAinteger32BE</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Temperature value</semantics>
+				</attribute>
+				<attribute>
+					<name>wind</name>
+					<dataType>HLAinteger32BE</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Wind power</semantics>
+				</attribute>
+			</objectClass>
+			<objectClass>
+				<name>Target</name>
+				<sharing>PublishSubscribe</sharing>
+				<semantics>Target</semantics>
+				<attribute>
+					<name>position</name>
+					<dataType>HLAinteger32BE</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Target's position</semantics>
+				</attribute>
+				<attribute>
+					<name>size</name>
+					<dataType>HLAinteger32BE</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Target's size</semantics>
+				</attribute>
+				<attribute>
+					<name>direction</name>
+					<dataType>HLAinteger32BE</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Target's move direction</semantics>
+				</attribute>
+			</objectClass>
+			<objectClass>
+				<name>Bullet</name>
+				<sharing>PublishSubscribe</sharing>
+				<semantics>Bullet</semantics>
+				<attribute>
+					<name>size</name>
+					<dataType>HLAinteger32BE</dataType>
+					<updateType>Conditional</updateType>
+					<updateCondition>On Change</updateCondition>
+					<ownership>Divest</ownership>
+					<sharing>PublishSubscribe</sharing>
+					<transportation>HLAreliable</transportation>
+					<order>TimeStamp</order>
+					<semantics>Bullet's size</semantics>
+				</attribute>
+			</objectClass>
+		</objectClass>
+	</objects>
+	<interactions>
+		<interactionClass>
+			<name>HLAinteractionRoot</name>
+			<interactionClass>
+				<name>TerrainUpload</name>
+				<sharing>PublishSubscribe</sharing>
+				<transportation>HLAreliable</transportation>
+				<order>TimeStamp</order>
+				<semantics>Upload terrain interaction</semantics>
+			</interactionClass>
+			<interactionClass>
+				<name>Shot</name>
+				<sharing>PublishSubscribe</sharing>
+				<transportation>HLAreliable</transportation>
+				<order>TimeStamp</order>
+				<semantics>Shot interaction</semantics>
+				<parameter>
+					<name>viewfinder</name>
+					<dataType>HLAinteger32BE</dataType>
+					<semantics>Viewfinder position</semantics>
+				</parameter>
+				<parameter>
+					<name>target_direction</name>
+					<dataType>HLAinteger32BE</dataType>
+					<semantics>Target direction</semantics>
+				</parameter>
+			</interactionClass>
+			<interactionClass>
+				<name>RemoveBullet</name>
+				<sharing>PublishSubscribe</sharing>
+				<transportation>HLAreliable</transportation>
+				<order>TimeStamp</order>
+				<semantics>Remove bullet interaction</semantics>
+				<parameter>
+					<name>was_hit</name>
+					<dataType>HLAinteger32BE</dataType>
+					<semantics>Was bullet hit target</semantics>
+				</parameter>
+				<parameter>
+					<name>bullet_position</name>
+					<dataType>HLAinteger32BE</dataType>
+					<semantics>Bullet position</semantics>
+				</parameter>
+			</interactionClass>
+		</interactionClass>
+	</interactions>
+	<dimensions/>
+	<synchronizations>
+		<synchronizationPoint>
+			<label>ReadyRoRun</label>
+			<dataType>NA</dataType>
+			<capability>NA</capability>
+			<semantics>Waiting for each federate joining</semantics>
+		</synchronizationPoint>
+	</synchronizations>
+	<transportations/>
+	<updateRates/>
+	<dataTypes>
+		<basicDataRepresentations/>
+		<simpleDataTypes/>
+		<enumeratedDataTypes/>
+		<arrayDataTypes>
+			<arrayData>
+				<name>TerrainArray</name>
+				<dataType>HLAinteger32BE</dataType>
+				<cardinality>Dynamic</cardinality>
+				<encoding>HLAvariableArray</encoding>
+				<semantics>Terrain integer array</semantics>
+			</arrayData>
+		</arrayDataTypes>
+		<fixedRecordDataTypes/>
+		<variantRecordDataTypes/>
+	</dataTypes>
+	<notes/>
+</objectModel>
